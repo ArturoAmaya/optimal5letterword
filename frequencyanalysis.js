@@ -54,7 +54,7 @@ for (const letter in relativefrequencies){
 }
 
 //console.log(relativefrequencies);
-
+// ************************************************************************
 // Now get the top 10
 let highestfreq = [];
 let relativefrequencies2 = relativefrequencies;
@@ -84,14 +84,36 @@ for (let i = 0; i<10; i++){
 
 console.log(highestfreq);
 
+
+// *******************************************************************************
 // Then, grab the top 5. Anagram and check each to see if it's a word. 
 // Then repeat the process with the second 5.
-let top5 = [highestfreq[0], highestfreq[1], highestfreq[2], highestfreq[3], highestfreq[4]];
-let next5 = [highestfreq[5],highestfreq[6],highestfreq[7],highestfreq[8],highestfreq[9]];
+
+// NOTE TO SELF: THOSE ARE WRONG ARRAYS. YOU NEED THE LETTERS, i.e. the keys
+// (whihc makes using 0,1,2,3,... useless anyway cuz they aint valid keys.)
+
+
+// source arrays, don't modify
+const top5 = [highestfreq[0], highestfreq[1], highestfreq[2], highestfreq[3], highestfreq[4]];
+const next5 = [highestfreq[5],highestfreq[6],highestfreq[7],highestfreq[8],highestfreq[9]];
+
+// array that gets spliced
+let spliced = top5;
+// array with combinations
+let comb = [];
 
 // anagram em
 let numbcomb = 5*4*3*2*1;
 
-for (let i =0; i<numbcomb; i++){
-    
+// Do it in the dumbest way.
+// Start with array of chars
+// Pick one char to start with and splice the array to have that char first in a new array.
+// Then do that with one of the remaining ones.
+// Repeat till all five have been consumed.
+for (let i = 0; i<5; i++){
+    // reset
+    spliced = top5;
+
+    // pick char at index i
+    let firstchar;
 }

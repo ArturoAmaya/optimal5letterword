@@ -28,6 +28,8 @@ const frequencies = {
     "y": 0,
     "z": 0,
 }
+
+// Check the frequency of each letter in the 5-letter word set
 let runningtotal = 0;
 //console.log(jsonData);
 for  (const word in jsonData) {
@@ -81,3 +83,15 @@ for (let i = 0; i<10; i++){
 }
 
 console.log(highestfreq);
+
+// Then, grab the top 5. Anagram and check each to see if it's a word. 
+// Then repeat the process with the second 5.
+let top5 = [highestfreq[0], highestfreq[1], highestfreq[2], highestfreq[3], highestfreq[4]];
+let next5 = [highestfreq[5],highestfreq[6],highestfreq[7],highestfreq[8],highestfreq[9]];
+
+// anagram em
+let numbcomb = 5*4*3*2*1;
+
+for (let i =0; i<numbcomb; i++){
+    
+}

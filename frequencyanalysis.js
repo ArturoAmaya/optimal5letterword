@@ -29,20 +29,20 @@ const frequencies = {
     "z": 0,
 }
 let runningtotal = 0;
-console.log(jsonData);
+//console.log(jsonData);
 for  (const word in jsonData) {
-    console.log(jsonData[word]);
+    //console.log(jsonData[word]);
     let wordword = jsonData[word];
     for (const letter in wordword){
         //console.log(`looking at letter ${letter}`);
         let char = wordword.charAt(letter);
-        console.log(char);
+        //console.log(char);
         frequencies[char] = frequencies[char] + 1;
         runningtotal++;
     }
 }
 
-console.log(frequencies);
+//console.log(frequencies);
 
 // relative frequencies!
 const relativefrequencies = frequencies;
@@ -51,4 +51,33 @@ for (const letter in relativefrequencies){
     relativefrequencies[letter] = relativefrequencies[letter]/runningtotal * 100;
 }
 
-console.log(relativefrequencies);
+//console.log(relativefrequencies);
+
+// Now get the top 10
+let highestfreq = [];
+let relativefrequencies2 = relativefrequencies;
+let currhighest = 0;
+let highestletter;
+
+for (let i = 0; i<10; i++){
+    // init to first item
+    highestletter = Object.keys(relativefrequencies2)[0]
+    currhighest = relativefrequencies2[highestletter];
+
+    //console.log(currhighest);
+    //console.log(highestletter);
+    for (const letter in relativefrequencies2){
+        //console.log(relativefrequencies2[letter]);
+        if (currhighest < relativefrequencies2[letter]){
+            //console.log("new highest");
+            highestletter = letter;
+            currhighest = relativefrequencies2[letter];
+        }
+    }
+    // add to new array and remove that letter from the object
+    highestfreq[highestletter]=currhighest;
+    delete relativefrequencies2[highestletter];
+
+}
+
+console.log(highestfreq);
